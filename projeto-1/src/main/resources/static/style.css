@@ -1,7 +1,7 @@
-/* Fundo com degradê igual ao da imagem */
+/* Fundo com degradê */
 body {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', Arial, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,60 +9,74 @@ body {
     margin: 0;
 }
 
-/* O "Cartão" branco centralizado */
+/* Cartão Central */
 .container {
     background: white;
-    padding: 30px;
+    padding: 40px;
     border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
     width: 100%;
-    max-width: 500px;
-    text-align: center;
+    max-width: 450px; /* Largura ideal para formulários */
 }
 
 h1 {
-    color: #333;
-    margin-bottom: 25px;
+    color: #2d3748;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 24px;
 }
 
-/* Campos de entrada e botão */
+/* Formulário em coluna */
 .form-group {
     display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin-bottom: 30px;
+    flex-direction: column; /* Coloca um campo embaixo do outro */
+    gap: 15px; /* Espaço entre os campos */
 }
 
 input, select {
-    padding: 12px;
-    border: 1px solid #ddd;
+    padding: 12px 15px;
+    border: 2px solid #e2e8f0;
     border-radius: 10px;
     font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+input:focus {
+    border-color: #667eea;
 }
 
 button {
     background-color: #5a67d8;
     color: white;
     border: none;
-    padding: 12px;
+    padding: 14px;
     border-radius: 10px;
     font-weight: bold;
+    font-size: 16px;
     cursor: pointer;
-    transition: 0.3s;
+    margin-top: 10px;
+    transition: background 0.3s;
 }
 
 button:hover {
     background-color: #434190;
 }
 
-/* Estilo dos itens da lista (Cards de transação) */
+/* Estilo da Lista */
+ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 30px;
+}
+
 li {
-    background: #f8f9fa;
-    margin-bottom: 10px;
+    background: #f7fafc;
+    margin-bottom: 12px;
     padding: 15px;
     border-radius: 12px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-left: 6px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
