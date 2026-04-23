@@ -11,7 +11,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "transactions") // Boa prática: definir o nome da tabela no plural
+@Table(name = "transactions") 
 public class Transaction {
 
     @Id
@@ -22,16 +22,21 @@ public class Transaction {
     
     private Double amount;
     
-    private String type; // INCOME ou EXPENSE
+    private String type; 
 
-    @JsonFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd") 
     private LocalDate date;
 
-    // Construtor padrão (Obrigatório para o JPA)
     public Transaction() {
     }
 
-    // Getters e Setters
+    public Transaction(String description, Double amount, String type, LocalDate date) {
+        this.description = description;
+        this.amount = amount;
+        this.type = type;
+        this.date = date;
+    }
+
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 
