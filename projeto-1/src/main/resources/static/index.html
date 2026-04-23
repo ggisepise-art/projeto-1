@@ -173,29 +173,40 @@
           console.error("Erro ao carregar dados. Verifique se o backend está rodando!", err); 
       }
     }
-
     async function salvar() {
-      const desc = document.getElementById("desc").value;
-      const valor = document.getElementById("valor").value;
-      const tipo = document.getElementById("tipo").value;
+    const desc = document.getElementById("desc").value;
+    const valor = document.getElementById("valor").value;
+    const tipo = document.getElementById("tipo").value;
 
-      if(!desc || !valor) return alert("Preencha todos os campos!");
+    if(!desc || !valor) return alert("Preencha todos os campos!");
 
-      const dataHoje = new Date().toISOString().split('T')[0]; 
+    const dataHoje = new Date().toISOString().split('T')[0]; 
 
-      await fetch(apiUrl, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-            description: desc,
-            amount: parseFloat(valor),
-            type: tipo,
-            date: dataHoje
-        })
-    });
+    try {
+        const response = await fetch(apiUrl, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                description: desc,
+                amount: parseFloat(valor),
+                type: tipo,
+                date: dataHoje 
+            })
+        });
 
-    fecharModal();
-    carregar();
+        if (response.ok) {
+            fecharModal();
+            await carregar(); 
+            document.getElementById("desc").value = "";
+            document.getElementById("valor").value = "";
+        } else {
+            const erroTxt = await response.text();
+            console.error("Erro do Java:", erroTxt);
+            alert("Erro ao salvar: Verifique o formato dos dados.");
+        }
+    } catch (err) {
+        console.error("Erro na rede:", err);
+    }
 }
       try {
           await fetch(apiUrl, {
@@ -210,7 +221,7 @@
           });
 
           fecharModal();
-          carregar(); // Recarrega a tabela e o gráfico
+          carregar(); 
           document.getElementById("desc").value = "";
           document.getElementById("valor").value = "";
       } catch (err) {
