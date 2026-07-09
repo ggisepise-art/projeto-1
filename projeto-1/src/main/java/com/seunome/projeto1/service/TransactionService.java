@@ -11,23 +11,19 @@ import com.seunome.projeto1.repository.TransactionRepository;
 public class TransactionService {
 
     private final TransactionRepository repository;
-
-    // Construtor
+    
     public TransactionService(TransactionRepository repository) {
         this.repository = repository;
     }
 
-    // LISTAR TODAS
     public List<Transaction> listar() {
         return repository.findAll();
     }
 
-    // CRIAR
     public Transaction criar(Transaction transaction) {
         return repository.save(transaction);
     }
 
-    // DELETAR
     public void deletar(Long id) {
         repository.deleteById(id);
     }
