@@ -1,4 +1,3 @@
-/* Fundo com degradê */
 body {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     font-family: 'Segoe UI', Arial, sans-serif;
@@ -9,14 +8,13 @@ body {
     margin: 0;
 }
 
-/* Cartão Central */
 .container {
     background: white;
     padding: 40px;
     border-radius: 20px;
     box-shadow: 0 15px 35px rgba(0,0,0,0.2);
     width: 100%;
-    max-width: 450px; /* Largura ideal para formulários */
+    max-width: 450px; 
 }
 
 h1 {
@@ -26,11 +24,10 @@ h1 {
     font-size: 24px;
 }
 
-/* Formulário em coluna */
 .form-group {
     display: flex;
-    flex-direction: column; /* Coloca um campo embaixo do outro */
-    gap: 15px; /* Espaço entre os campos */
+    flex-direction: column; 
+    gap: 15px; 
 }
 
 input, select {
@@ -63,7 +60,6 @@ button:hover {
     background-color: #434190;
 }
 
-/* Estilo da Lista */
 ul {
     list-style: none;
     padding: 0;
