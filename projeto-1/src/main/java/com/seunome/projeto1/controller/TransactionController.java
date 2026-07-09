@@ -21,24 +21,20 @@ public class TransactionController {
 
     private final TransactionService service;
 
-    // Construtor
     public TransactionController(TransactionService service) {
         this.service = service;
     }
 
-    // LISTAR TODAS
     @GetMapping
     public List<Transaction> listar() {
         return service.listar();
     }
 
-    // CRIAR
     @PostMapping
     public Transaction criar(@RequestBody Transaction transaction) {
         return service.criar(transaction);
     }
 
-    // DELETAR
     @DeleteMapping("/{id}")
     public void deletar(@PathVariable Long id) {
         service.deletar(id);
